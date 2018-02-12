@@ -13,7 +13,7 @@ DC/OS Experiments
 
 ## Service/Job Management
 
-### Attribute-based service placement
+### Attribute-aware service placement
 
 DC/OS allows users to pass in **Mesos constraints** to control service placement as Marathon does.
 
@@ -59,11 +59,31 @@ to override this default constraint, we need to allow the services to be deploye
 
 `slave_public` and `*` allow the service to be deployed on public and private agent nodes, respectively.
 
+
+## Virtual Network ([Reference](https://docs.mesosphere.com/1.10/networking/virtual-networks/))
+
+- **Features:**
+    - No global IPAM (Yay!). IP address space is split into smaller subnets, which are distributed among agent nodes.
+    - Gossip protocol implementation - [lashup](https://github.com/dcos/lashup)
+- **Limitations:**
+    - Mesos tasks will fail if exhausting IP addresses on an agent node and there is no API for detecting such exhaustion, *i.e.*, **services/jobs have to infer the exhaustion on their own**.
+    - The virtual network name is limited to *13 characters*.
+    - The addresses allocated to each agent node are equally divided for Mesos and Docker containers.
+- How to delete a virtual network?
+    - Delete `/var/lib/dcos/mesos/master/overlay_replicated_log` on Mesos master
+    - Delete `IPMASQ` rules of `iptables`
+- How to add/replace a virtual network?
+    - Remove current virtual network if available
+    - Specify the new virtual network in the `config.yaml` file and reinstall   
+
+
+
+
 ## TO-DOs
 - [x] GUI deployment on Chameleon
-- [x] Attribute-based service placement
-- [ ] Deeper understanding of DC/OS components and their inter-operations
-- [ ] DC/OS API exploration
+- [x] Attribute-aware service placement
+- [ ] CNI deployment (*e.g.*, Weave)
+- [ ] DC/OS custom scheduler
 - [ ] Advanced deployment: https://docs.mesosphere.com/1.10/installing/oss/custom/advanced/
 
 
