@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo systemctl start dcos-mesos-slave-public
+sudo systemctl start dcos-mesos-slave
