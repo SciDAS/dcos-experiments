@@ -85,7 +85,7 @@ to override this default constraint, we need to allow the services to be deploye
     - Using private and public IPs
 - CLI installation
 - References
-    - [DC/OS across Multiple Zones] (https://docs.mesosphere.com/1.10/installing/high-availability/multi-zone/)
+    - [DC/OS across Multiple Zones](https://docs.mesosphere.com/1.10/installing/high-availability/multi-zone/)
     - [DC/OS across Multiple Regions](https://docs.mesosphere.com/1.10/installing/high-availability/multi-region/)
 
 
