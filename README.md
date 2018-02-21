@@ -77,20 +77,6 @@ to override this default constraint, we need to allow the services to be deploye
     - Specify the new virtual network in the `config.yaml` file and reinstall
 
 
-## Cross-Cloud Deployment (AWS and Chameleon)
-- GUI installation
-    - Using only public IPs - <span style="color:red"> *Failed* </span>
-        - Agent nodes outside the Cloud where the master is running failed the post-flight script
-        - The master node cannot detect agent nodes running in another Cloud after manual restart
-    - Using private and public IPs
-- CLI installation
-- References
-    - [DC/OS across Multiple Zones](https://docs.mesosphere.com/1.10/installing/high-availability/multi-zone/)
-    - [DC/OS across Multiple Regions](https://docs.mesosphere.com/1.10/installing/high-availability/multi-region/)
-
-
-
-
 ## TO-DOs
 - [x] GUI deployment on Chameleon
 - [x] Attribute-aware service placement
