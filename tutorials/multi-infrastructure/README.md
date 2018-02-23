@@ -1,5 +1,5 @@
 
-## Multi-Infrastructure (Cross-cloud) Deployment
+## Multi-Infrastructure (Cross-Cloud) Deployment
 **Note:** DC/OS deployment across multiple regions is not officially supported yet as quoted:
 
 > ... DC/OS does not currently support multiple region configurations. If you would like to experiment with multi-region configurations, this topic provides the setup recommendations and caveats ...
