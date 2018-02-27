@@ -40,3 +40,14 @@ you also need to wipe out its footprints in DC/OS Zookeeper as it persists state
 1) visit `http://<master-ip>/exhibitor` in the browser
 2) click on `Explorer` tab
 3) remove `spark_mesos_dispatcher` entry.
+
+
+### 2. Run Spark Shell
+[This documentation](https://docs.mesosphere.com/services/spark/v1.0.9-2.1.0-1/spark-shell/) introduces how to connect Spark shell to DC/OS Mesos. The documentation uses the private IP address of the Mesos leader master for connecting Spark shell.
+Alternatively, you can use the Zookeeper endpoint of the Mesos master as below, which is more static.
+
+```bash
+./bin/spark-shell --master mesos://zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/mesos \
+                  --conf spark.mesos.executor.docker.image=mesosphere/spark:1.0.9-2.1.0-1-hadoop-2.6 \
+                  --conf spark.mesos.executor.home=/opt/spark/dist
+```
