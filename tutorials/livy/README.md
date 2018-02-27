@@ -12,6 +12,9 @@ files. Instead, as shown in the code snippet below, you should point the new Spa
 The docker image will be used to start Spark executor containers for running Spark tasks submitted to this session.
 
 ```python
+import json
+import requests
+
 host = 'http://<livy-host>:8998'
 data = {
   'kind': 'spark',
