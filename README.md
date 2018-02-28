@@ -28,9 +28,9 @@ EOF
 
 2. Restart the agent node (private agent in this example)
 ```
-systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave
-⁠⁠sudo systemctl daemon-reload
-⁠⁠⁠⁠sudo rm -rf /var/lib/mesos/slave/meta/slaves/*
+sudo systemctl kill -s SIGUSR1 dcos-mesos-slave && sudo systemctl stop dcos-mesos-slave
+sudo systemctl daemon-reload
+sudo rm -rf /var/lib/mesos/slave/meta/slaves/*
 sudo systemctl start dcos-mesos-slave
 ```
 
