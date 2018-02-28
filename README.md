@@ -21,17 +21,17 @@ DC/OS allows users to pass in **Mesos constraints** to control service placement
 be labeled with multiple key-value pairs separated by semicolons.
 
 ```bash
-# cat >> /var/lib/dcos/mesos-slave-common <<EOF
+cat >> /var/lib/dcos/mesos-slave-common <<EOF
 MESOS_ATTRIBUTES=foo:bar;alpha:beta
 EOF
 ```
 
 2. Restart the agent node (private agent in this example)
 ```
-# systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave
-# ⁠⁠sudo systemctl daemon-reload
-# ⁠⁠⁠⁠sudo rm -rf /var/lib/mesos/slave/meta/slaves/*
-# sudo systemctl start dcos-mesos-slave
+systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave
+⁠⁠sudo systemctl daemon-reload
+⁠⁠⁠⁠sudo rm -rf /var/lib/mesos/slave/meta/slaves/*
+sudo systemctl start dcos-mesos-slave
 ```
 
 3. Add constraint(s) to a service to dictate placement. The constraint usage can be found [here](https://docs.mesosphere.com/1.11/deploying-services/marathon-constraints/).
@@ -81,7 +81,7 @@ to override this default constraint, we need to allow the services to be deploye
 - [x] GUI deployment on Chameleon
 - [x] Attribute-aware service placement
 - [x] Virtual network
-- [ ] Cross-Cloud deployment
+- [x] Cross-Cloud deployment
 - [ ] DC/OS custom scheduler
     - [ ] Acquire offers from DC/OS scheduler
 - [ ] Advanced deployment: https://docs.mesosphere.com/1.10/installing/oss/custom/advanced/

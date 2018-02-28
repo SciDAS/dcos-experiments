@@ -40,6 +40,15 @@ Verbally this rule says "modify the destination of packets to `<public-ip-addres
 different infrastructures*, so that they can communicate with each other using their private IP addresses. For instance, if there are nodes A, B and C running on 3 different infrastructures, each node needs to
 install 2 NAT rules to route traffic properly to their peers on other infrastructures.
 
+After installing these rules, if the agents are not shown in the DC/OS dashboard or in an "Unhealthy" status, restart the agents as below:
+```bash
+# restart private agent
+sudo systemctl restart dcos-mesos-slave
+
+# restart public agent
+sudo systemctl restart dcos-mesos-slave-public
+```
+
 **Note:** Make sure you do Step 3 after Step 2, since some DC/OS components (*e.g.,* Spartan) also use `iptables` rules and will wipe out existing rules during the installation.
 
 ### References:
