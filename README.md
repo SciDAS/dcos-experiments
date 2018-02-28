@@ -21,7 +21,7 @@ DC/OS allows users to pass in **Mesos constraints** to control service placement
 be labeled with multiple key-value pairs separated by semicolons.
 
 ```bash
-cat >> /var/lib/dcos/mesos-slave-common <<EOF
+cat | sudo tee /var/lib/dcos/mesos-slave-common <<EOF
 MESOS_ATTRIBUTES=foo:bar;alpha:beta
 EOF
 ```
